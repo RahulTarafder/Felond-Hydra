@@ -1,0 +1,9 @@
+dist/
+node_modules/
+bot-test/
+Postman/
+token
+*.tgz
+dist.zip
+api-docs
+files

@@ -1,0 +1,111 @@
+{
+  "name": "hydra-bot",
+  "version": "1.0.30",
+  "description": "The most reliable WhatsApp tool for chatbots with advanced features. Hydra bot is an open source project developed by the JavaScript community with the aim of exporting functions from WhatsApp Web to the node js, . The most complete javascript library for Whatsapp, 100% Open Source.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clear": "shx rm -rf dist",
+    "build:hydra": "tsc",
+    "build:api": "cd src/webpack/assets && webpack",
+    "build": "tsc && npm run gulp:copyall && npm run build:api ",
+    "build:docs": "typedoc && git add docs/*",
+    "start:tsc": "tsc && node bot-test/index.js",
+    "start": "npm run build && node bot-test/index.js",
+    "knex": "cd src && npx knex migrate:latest",
+    "del:module": "shx rm -rf node_modules",
+    "release": "release-it",
+    "changelog:last": "conventional-changelog -p angular -r 2",
+    "changelog:preview": "conventional-changelog -p angular -u",
+    "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog:previous": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "docs:build": "npm run docs:clean && npm run docs:fix && typedoc && npm run docs:copy-images",
+    "docs:clean": "shx rm -rf api-docs",
+    "docs:copy-images": "shx cp -R ./img ./api-docs",
+    "docs:fix": "ts-node ./docs/layouts/fix-docs.ts",
+    "peer": "npm install --legacy-peer-deps",
+    "gulp:bin": "cd gulp/bin && gulp",
+    "gulp:lessons": "cd gulp/lessons && gulp",
+    "gulp:knex": "cd gulp/knex && gulp",
+    "gulp:sqlite": "cd gulp/sqlite && gulp",
+    "gulp:hydra": "cd gulp/hydra && gulp",
+    "gulp:migrations": "cd gulp/migrations && gulp",
+    "gulp:views": "cd gulp/views && gulp",
+    "gulp:copyall": "npm run gulp:bin && npm run gulp:lessons && npm run gulp:knex && npm run gulp:sqlite && npm run gulp:migrations && npm run gulp:views"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonalan7/Hydra-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonalan7/Hydra-bot/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/jonalan7/Hydra-bot#readme",
+  "keywords": [
+    "puppeteer",
+    "whatsapp",
+    "javascript",
+    "typescript",
+    "bot",
+    "chat bot",
+    "api"
+  ],
+  "author": "Jonalan",
+  "license": "ISC",
+  "dependencies": {
+    "atob": "^2.1.2",
+    "axios": "^0.27.2",
+    "boxen": "^5.0.1",
+    "chalk": "^4.1.2",
+    "chrome-launcher": "^0.15.1",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-rate-limit": "^6.5.1",
+    "futoin-hkdf": "^1.5.1",
+    "knex": "^2.1.0",
+    "latest-version": "^5.1.0",
+    "mime-types": "^2.1.35",
+    "puppeteer": "^14.2.1",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin-stealth": "^2.9.0",
+    "qrcode-terminal": "^0.12.0",
+    "sharp": "^0.30.7",
+    "sqlite3": "^5.0.8",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "devDependencies": {
+    "@types/atob": "^2.1.2",
+    "@types/chalk": "^2.2.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/mime-types": "^2.1.1",
+    "@types/node": "^17.0.42",
+    "@types/qrcode-terminal": "^0.12.0",
+    "@types/sharp": "^0.30.4",
+    "@types/shelljs": "^0.8.11",
+    "conventional-changelog-cli": "^2.2.2",
+    "gulp": "^4.0.2",
+    "release-it": "^15.0.0",
+    "shx": "^0.3.4",
+    "ts-node": "^10.8.2",
+    "typedoc": "^0.21.10",
+    "typedoc-default-themes": "^0.12.10",
+    "typedoc-plugin-pages": "^1.1.0",
+    "typescript": "4.0.x"
+  },
+  "bin": {
+    "admin": "./dist/bin/admin"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "peerDependencies": {
+    "typescript": ">= 4.0.x"
+  }
+}

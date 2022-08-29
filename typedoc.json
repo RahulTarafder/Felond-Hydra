@@ -1,0 +1,79 @@
+{
+  "disableSources": false,
+  "entryPoints": [
+    "src/index.ts",
+    "./package.json"
+  ],
+  "excludeExternals": false,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "includeVersion": true,
+  "out": "api-docs",
+  "theme": "pages-plugin",
+  "media": "media",
+  "pages": {
+    "groups": [
+      {
+        "title": "Getting Started",
+        "pages": [
+          {
+            "title": "Installation",
+            "source": "./docs/getting-started/installation.md"
+          },
+          {
+            "title": "Web service",
+            "source": "./docs/getting-started/web_service.md",
+            "children": [
+              {
+                "title": "Administration",
+                "source": "./docs/getting-started/admin.md"
+              },
+              {
+                "title": "User Routers",
+                "source": "./docs/getting-started/user.md"
+              }
+            ]
+          },
+          {
+            "title": "Start Bot",
+            "source": "./docs/getting-started/start_bot.md"
+          }
+        ]
+      },
+      {
+        "title": "How To",
+        "pages": [
+          {
+            "title": "Send Messages Options",
+            "source": "./docs/getting-started/send_options.md"
+          },
+          {
+            "title": "Send Messages",
+            "source": "./docs/getting-started/send_functions.md"
+          },
+          {
+            "title": "Profile Functions",
+            "source": "./docs/getting-started/profile_functions.md"
+          },
+          {
+            "title": "Retrieving Data",
+            "source": "./docs/getting-started/retrieving_data.md"
+          }
+        ]
+      },
+      {
+        "title": "Management",
+        "pages": [
+          {
+            "title": "Group Management",
+            "source": "./docs/getting-started/group_functions.md"
+          },
+          {
+            "title": "Downloading Files",
+            "source": "./docs/getting-started/downloading_files.md"
+          }
+        ]
+      }
+    ]
+  }
+}
